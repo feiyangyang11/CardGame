@@ -12,7 +12,7 @@ CardView* CardView::create(const CardModel& cardModel) {
     CC_SAFE_DELETE(ret);
     return nullptr;
 }
-
+//初始化
 bool CardView::init(const CardModel& cardModel) {
     if (!Node::init()) {
         return false;
@@ -48,11 +48,12 @@ void CardView::initCardSprite(const CardModel& cardModel) {
         showFront(cardModel);
     }
     else {
-        showBack();
+        showBack();//用不到
     }
     
 
 }
+//更新牌面
 void CardView::showFront(const CardModel& cardModel) {
     
     std::string path = CardResourcesConfig::getCardFrontImage(/*...*/);
@@ -67,11 +68,10 @@ void CardView::showFront(const CardModel& cardModel) {
         generalSprite->setScale(0.8);
         if (!generalSprite) {
             CCLOG("ERROR: failed to load sprite: %s", path.c_str());
-            return; // 或者创建占位图
+            return; 
         }
 
-        generalSprite->setPosition(getContentSize().width * 0.5f,
-            getContentSize().height * 0.5f);
+        generalSprite->setPosition(getContentSize().width * 0.5f,getContentSize().height * 0.5f);
         addChild(generalSprite, 0);
     }
 

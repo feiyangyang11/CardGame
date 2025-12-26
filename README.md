@@ -60,7 +60,6 @@ CardGame/
 │   │
 │   ├── utils/                        # 工具类，暂用不到
 │   │   
-│   │
 │   └── AppDelegate.h/cpp             # 应用程序入口
 │
 ├── Resources/                        # 资源文件
