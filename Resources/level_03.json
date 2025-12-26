@@ -1,32 +1,24 @@
 {
-  "levelId": 3,
+  "levelId": 9,
   "tableCards": [
-    { "suit": 0, "number": 8, "x": 200, "y": 700, "isVisible": true, "id": 1 },
-    { "suit": 1, "number": 7, "x": 350, "y": 700, "isVisible": true, "id": 2 },
-    { "suit": 2, "number": 6, "x": 500, "y": 700, "isVisible": true, "id": 3 },
-    { "suit": 3, "number": 7, "x": 650, "y": 700, "isVisible": true, "id": 4 },
+    { "suit": 0, "number": 2, "x": 220, "y": 280, "isVisible": true, "id": 1 },
+    { "suit": 1, "number": 3, "x": 220, "y": 360, "isVisible": true, "id": 2 },
+    { "suit": 2, "number": 4, "x": 220, "y": 440, "isVisible": true, "id": 3 },
+    { "suit": 3, "number": 5, "x": 220, "y": 520, "isVisible": true, "id": 4 },
+    { "suit": 1, "number": 7, "x": 220, "y": 600, "isVisible": true, "id": 5 },
+    { "suit": 0, "number": 6, "x": 220, "y": 680, "isVisible": true, "id": 6 },
 
-    { "suit": 0, "number": 8, "x": 200, "y": 520, "isVisible": true, "id": 5 },
-    { "suit": 1, "number": 10, "x": 350, "y": 520, "isVisible": true, "id": 6 },
-    { "suit": 2, "number": 6, "x": 500, "y": 520, "isVisible": true, "id": 7 },
-    { "suit": 3, "number": 8, "x": 650, "y": 520, "isVisible": true, "id": 8 },
-
-    { "suit": 0, "number": 9, "x": 200, "y": 340, "isVisible": true, "id": 9 },
-    { "suit": 1, "number": 11, "x": 350, "y": 340, "isVisible": true, "id": 10 },
-    { "suit": 2, "number": 5, "x": 500, "y": 340, "isVisible": true, "id": 11 },
-    { "suit": 3, "number": 4, "x": 650, "y": 340, "isVisible": true, "id": 12 }
+    { "suit": 2, "number": 11, "x": 640, "y": 280, "isVisible": true, "id": 7 },
+    { "suit": 3, "number": 10, "x": 640, "y": 360, "isVisible": true, "id": 8 },
+    { "suit": 0, "number": 9, "x": 640, "y": 440, "isVisible": true, "id": 9 },
+    { "suit": 1, "number": 8, "x": 640, "y": 520, "isVisible": true, "id": 10 },
+    { "suit": 2, "number": 7, "x": 640, "y": 600, "isVisible": true, "id": 11 },
+    { "suit": 3, "number": 5, "x": 640, "y": 680, "isVisible": true, "id": 12 }
   ],
   "handCards": [
-    { "suit": 1, "number": 9, "x": 400, "y": 200, "isVisible": true, "id": 13 },
-    { "suit": 2, "number": 7, "x": 500, "y": 200, "isVisible": true, "id": 14 },
-    { "suit": 0, "number": 10, "x": 600, "y": 200, "isVisible": true, "id": 15 }
+    { "suit": 0, "number": 7, "x": 400, "y": 200, "isVisible": true, "id": 13 },
+    { "suit": 1, "number": 8, "x": 500, "y": 200, "isVisible": true, "id": 14 },
+    { "suit": 2, "number": 9, "x": 600, "y": 200, "isVisible": true, "id": 15 }
   ],
-  "topCard": {
-    "suit": 3,
-    "number": 6,
-    "x": 540,
-    "y": 1000,
-    "isVisible": true,
-    "id": 16
-  }
+  "topCard": { "suit": 3, "number": 6, "x": 540, "y": 1000, "isVisible": true, "id": 16 }
 }

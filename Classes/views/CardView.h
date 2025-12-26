@@ -97,7 +97,7 @@ public:
      */
     void setCardId(int cardId) { cardId = cardId; }
 
-//private:
+private:
     /**
      * @brief ³õÊ¼»¯¿¨ÅÆ¾«Áé
      */
