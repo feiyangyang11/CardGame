@@ -31,9 +31,9 @@ CardGame/
 ├── Classes/                          # 所有游戏逻辑代码
 │   ├── configs/                      # 静态配置
 │   │   ├── enums/
-│   │   │   └── CardDefine.h         # 卡牌枚举定义
+│   │   │   └── CardDefine.h         # 卡牌枚举定义（花色和号码）
 │   │   ├── models/
-│   │   │   ├── CardResConfig.h/cpp  # 卡牌资源配置
+│   │   │   ├── CardResourcesConfig.h/cpp  # 卡牌资源配置
 │   │   │   ├── LevelCardConfig.h    # 关卡卡牌配置
 │   │   │   └── LevelConfig.h/cpp    # 关卡配置
 │   │   ├── loaders/
@@ -58,8 +58,8 @@ CardGame/
 │   ├── services/                     # 服务层
 │   │   └── CardMatchService.h/cpp   # 卡牌匹配服务
 │   │
-│   ├── utils/                        # 工具类
-│   │   └── CardValueHelper.h/cpp    # 卡牌点数转换工具
+│   ├── utils/                        # 工具类，暂用不到
+│   │   
 │   │
 │   └── AppDelegate.h/cpp             # 应用程序入口
 │
@@ -110,10 +110,10 @@ CardGame/
 ┌─────────────────────────────────────────────────────────┐
 │                     Controller 层                        │
 │  ┌──────────────────────────────────────────────────┐   │
-│  │          GameController (游戏主控制器)            │   │
-│  │  - handleTableCardClick()  处理桌面牌点击        │   │
-│  │  - handleHandCardClick()   处理手牌点击          │   │
-│  │  - handleUndoClick()       处理回退              │   │
+│  │          GameController (游戏主控制器)             │   │
+│  │  - handleTableClick()  处理桌面牌点击        		 │   │
+│  │  - handleHandClick()   处理手牌点击          	  │   │
+│  │  - handleUndoClick()       处理回退               │   │
 │  └──────────────────────────────────────────────────┘   │
 └────────────┬─────────────────┬──────────────────────────┘
              │                 │
@@ -141,89 +141,65 @@ CardGame/
 
 ### 层次职责
 
-#### 1. Utils 层（工具类）
-
-- **职责**：提供通用的辅助功能，与业务完全解耦
-
-- 示例
-
-  ：
-
-  - `CardValueHelper`：卡牌点数转换（"A" ↔ 1）
-
-- **特点**：静态方法，无状态，可复用
-
-#### 2. Models 层（数据模型）
+#### 1. Models 层（数据模型）
 
 - **职责**：存储游戏运行时数据，不包含业务逻辑
 
-- 示例
-
-  ：
+- 示例：
 
   - `CardModel`：单张卡牌数据（花色、点数、ID、可见状态）
   - `GameModel`：游戏数据（桌面牌、手牌、顶部牌）
   - `UndoModel`：回退操作数据
-
+  
 - **特点**：纯数据类，支持拷贝
 
-#### 3. Services 层（服务）
+#### 2. Services 层（服务）
 
 - **职责**：提供无状态的业务逻辑服务
 
-- 示例
-
-  ：
+- 示例：
 
   - `CardMatchService`：判断卡牌是否可以匹配（点数差1）
 
 - **特点**：静态方法，不持有数据
 
-#### 4. Managers 层（管理器）
+#### 3. Managers 层（管理器）
 
 - **职责**：管理特定领域的数据和逻辑
 
-- 示例
-
-  ：
+- 示例：
 
   - `UndoManager`：管理回退操作历史栈
 
 - **特点**：作为 Controller 成员，持有数据，不使用单例
 
-#### 5. Controllers 层（控制器）
+#### 4. Controllers 层（控制器）
 
 - **职责**：协调 Model 和 View，处理业务逻辑
 
-- 示例
-
-  ：
+- 示例：
 
   - `GameController`：管理游戏流程，处理用户操作
 
 - **特点**：连接 Model 和 View，调用 Service 和 Manager
 
-#### 6. Views 层（视图）
+#### 5. Views 层（视图）
 
 - **职责**：显示界面，响应用户输入
 
-- 示例
-
-  ：
+- 示例：
 
   - `CardView`：显示单张卡牌，处理点击
   - `GameView`：管理游戏界面布局
   - `GameScene`：游戏场景容器
-
+  
 - **特点**：通过回调与 Controller 通信，不包含业务逻辑
 
-#### 7. Configs 层（配置）
+#### 6. Configs 层（配置）
 
 - **职责**：存储和加载静态配置
 
-- 示例
-
-  ：
+- 示例：
 
   - `LevelConfigLoader`：从 JSON 加载配置
   - `CardResConfig`：卡牌资源路径配置
@@ -258,27 +234,23 @@ CardGame/
 
 #### 回退数据结构
 
-cpp
-
 ```cpp
 class UndoModel {
-    OperationType _type;           // 操作类型（桌面→顶部 or 手牌→顶部）
-    CardModel _movedCard;          // 移动的卡牌
-    CardModel _originalTopCard;    // 原顶部牌
+    OperationType type;           // 操作类型（桌面→顶部 or 手牌→顶部）
+    CardModel movedCard;          // 移动的卡牌
+    CardModel originalTopCard;    // 原顶部牌
 };
 ```
 
 #### 回退栈管理
 
-cpp
-
 ```cpp
 // UndoManager.cpp
 class UndoManager {
-    std::vector<UndoModel> _undoStack;  // 回退栈
+    std::vector<UndoModel> undoStack;  // 回退栈
     
-    void push(const UndoModel& undoModel);  // 保存操作
-    UndoModel pop();                         // 弹出操作
+    void save(const UndoModel& undoModel);  // 保存操作
+    UndoModel undo();                         // 弹出操作
     bool canUndo();                          // 判断是否可回退
 };
 ```
@@ -290,19 +262,19 @@ class UndoManager {
 ### 1. 点击反馈动画
 
 - **效果**：卡牌放大到 1.1 再恢复到 1.0
-- **时长**：0.2 秒
+- **时长**：0.1 秒
 - **触发**：用户点击卡牌时
 
 ### 2. 移动动画
 
 - **效果**：卡牌平移到目标位置
-- **时长**：0.3 秒
+- **时长**：0.1 秒
 - **触发**：卡牌匹配成功后移动到顶部
 
 ### 3. 翻转动画（已实现但未使用）
 
 - **效果**：卡牌水平翻转，切换正面/背面
-- **时长**：0.2 秒
+- **时长**：0.1 秒
 - **说明**：当前游戏中所有卡牌都是翻开的，此动画暂未使用
 
 ------
@@ -514,10 +486,10 @@ bool GameController::handleTableCardClick(int cardId) {
 
 ### 当前限制
 
-1. **单关卡**：目前只支持加载一个关卡，没有关卡选择界面
+1. **单关卡**：目前只支持加载一个关卡(每次运行，随机加载四个关卡中的一个)，没有关卡选择界面
 2. **固定布局**：卡牌位置在代码中硬编码，不够灵活
 3. **无音效**：没有添加音效和背景音乐
-4. **无动画优化**：回退动画较简单，可以增强
+4. **无动画优化**：回退动画较简单
 
 ### 待改进功能
 

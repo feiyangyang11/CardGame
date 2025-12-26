@@ -21,7 +21,7 @@ bool GameScene::init() {
     // 4. 随机加载关卡并初始化游戏
     srand(time(NULL));
     int id = rand() % 4 + 1;
-     LevelConfig config = LevelConfigLoader::loadLevelConfig(3);
+     LevelConfig config = LevelConfigLoader::loadLevelConfig(id);
 
     //// 使用默认测试配置
     //LevelConfig config = LevelConfigLoader::createDefaultTestLevel();
