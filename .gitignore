@@ -1,0 +1,103 @@
+# Cocos2d-x / build artifacts
+**/Debug*/
+**/Release*/
+**/*.pch
+**/*.ipch
+**/*.obj
+**/*.pdb
+**/*.ilk
+**/*.tlog
+**/*.log
+**/*.idb
+**/*.sdf
+**/*.opensdf
+**/*.VC.db
+**/*.VC.opendb
+**/.vs/
+
+####################################
+# Visual Studio / Windows
+####################################
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.opendb
+ipch/
+
+####################################
+# Build output directories
+####################################
+Debug/
+Release/
+x64/
+Win32/
+build/
+out/
+
+####################################
+# Cocos2d-x build artifacts
+####################################
+proj.win32/Debug/
+proj.win32/Release/
+proj.win32/x64/
+proj.win32/Win32/
+
+####################################
+# Object / binary files
+####################################
+*.obj
+*.o
+*.exe
+*.dll
+*.lib
+*.a
+*.pdb
+*.ilk
+*.exp
+
+####################################
+# Logs / temp files
+####################################
+*.log
+*.tmp
+*.cache
+*.bak
+*.swp
+*.swo
+
+####################################
+# OS generated files
+####################################
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+####################################
+# CMake (if used)
+####################################
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+####################################
+# Python (if cocos scripts used)
+####################################
+__pycache__/
+*.pyc
+
+####################################
+# Node / tools (if any)
+####################################
+node_modules/
+
+####################################
+# Keep these (important)
+####################################
+!Resources/
+!Classes/
+!CMakeLists.txt
+

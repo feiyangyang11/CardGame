@@ -1,0 +1,87 @@
+{
+  "levelId": 1,
+  "tableCards": [
+    {
+      "suit": 2,
+      "number": 3,
+      "x": 200,
+      "y": 600,
+      "isVisible": true,
+      "id": 1
+    },
+    {
+      "suit": 0,
+      "number": 2,
+      "x": 400,
+      "y": 600,
+      "isVisible": true,
+      "id": 2
+    },
+    {
+      "suit": 3,
+      "number": 7,
+      "x": 600,
+      "y": 600,
+      "isVisible": true,
+      "id": 3
+    },
+    {
+      "suit": 1,
+      "number": 5,
+      "x": 800,
+      "y": 600,
+      "isVisible": true,
+      "id": 4
+    },
+    {
+      "suit": 2,
+      "number": 13,
+      "x": 200,
+      "y": 400,
+      "isVisible": true,
+      "id": 5
+    },
+    {
+      "suit": 0,
+      "number": 6,
+      "x": 400,
+      "y": 400,
+      "isVisible": true,
+      "id": 6
+    }
+  ],
+  "handCards": [
+    {
+      "suit": 1,
+      "number": 1,
+      "x": 400,
+      "y": 200,
+      "isVisible": true,
+      "id": 7
+    },
+    {
+      "suit": 0,
+      "number": 8,
+      "x": 500,
+      "y": 200,
+      "isVisible": true,
+      "id": 8
+    },
+    {
+      "suit": 2,
+      "number": 12,
+      "x": 600,
+      "y": 200,
+      "isVisible": true,
+      "id": 9
+    }
+  ],
+  "topCard": {
+    "suit": 3,
+    "number": 4,
+    "x": 540,
+    "y": 1000,
+    "isVisible": true,
+    "id": 10
+  }
+}
